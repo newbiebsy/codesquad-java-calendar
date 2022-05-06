@@ -33,28 +33,30 @@ public class Calendar {
 	public static void main(String[] args) {
 		
 		// 숫자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
+		
+		String PROMPT = "cal> ";
+		
 		Scanner sc = new Scanner(System.in);
-				
-		Calendar cal = new Calendar();
+		Calendar cal = new Calendar();		
 		
-		System.out.print("반복횟수를 입력하세요 : ");
-		int cycle = sc.nextInt();
-		System.out.println();
+		int month = 0;
 		
-		int[] months = new int[cycle];
-		
-		System.out.print("달을 입력하세요 : ");
-		for(int i=0;i<cycle;i++) {
-			int month = sc.nextInt();				
-			months[i] = month;
-		}
-		
-		for (int i = 0; i < months.length; i++) {
+		while(true) {
+			System.out.println("달을 입력하세요. ");
+			System.out.print(PROMPT);
+			month = sc.nextInt();
 			
-			System.out.println((months[i])+"월은 "+cal.getMaxDaysOfMonth(months[i])+"일까지 있습니다");
+			if(month == -1) {
+				break;
+			}
+			if(month > 12 || month <= 0) {
+				continue;
+			}
+			System.out.println(month+"월은 "+cal.getMaxDaysOfMonth(month)+"일까지 있습니다.");
+			
 		}
-		System.out.println("end");
 		
+		System.out.println("bye~!");
 		sc.close();
 	}
 }
