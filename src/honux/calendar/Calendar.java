@@ -37,12 +37,24 @@ public class Calendar {
 				
 		Calendar cal = new Calendar();
 		
-		System.out.println("달을 입력하세요.");
-		int month = sc.nextInt();
+		System.out.print("반복횟수를 입력하세요 : ");
+		int cycle = sc.nextInt();
+		System.out.println();
 		
-		System.out.println(month+"월은 "+cal.getMaxDaysOfMonth(month)+"일까지 있습니다");
+		int[] months = new int[cycle];
 		
-	
+		System.out.print("달을 입력하세요 : ");
+		for(int i=0;i<cycle;i++) {
+			int month = sc.nextInt();				
+			months[i] = month;
+		}
 		
+		for (int i = 0; i < months.length; i++) {
+			
+			System.out.println((months[i])+"월은 "+cal.getMaxDaysOfMonth(months[i])+"일까지 있습니다");
+		}
+		System.out.println("end");
+		
+		sc.close();
 	}
 }
